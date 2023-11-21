@@ -26,7 +26,7 @@ router.post("/create", async (req, res, next) => {
       email,
       password,
     });
-    return res.json("User added successfully");
+    return res.status(200).json("User added successfully");
   } catch (error) {
     next(error);
   }
@@ -57,7 +57,7 @@ router.post("/data", (req, res) => {
   const { username } = req.body;
   Schema.findOne({ username: username }).then((login) => {
     if (login) {
-      return res.json(login);
+      return res.status(200).json(login);
     } else {
       return res.status(400).json("No record exits");
     }
