@@ -96,6 +96,7 @@ router.post("/update", async (req, res) => {
     if (existingUser) {
       // Update the existing user's information
       existingUser.name = name;
+      existingUser.email = email;
       existingUser.password = password;
       await existingUser.save();
 
